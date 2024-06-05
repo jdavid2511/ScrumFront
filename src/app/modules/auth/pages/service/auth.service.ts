@@ -7,7 +7,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root'
 })
 export class AuthService {
-  private API_SERVER = 'http://localhost:8020/auth';
+  private API_SERVER = 'https://scrumback.azurewebsites.net/auth';
   private tokenExpiration: number= 3600000;
 
   constructor(private httpClient: HttpClient,
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   public register(employee: any): Observable<any> {
-    return this.httpClient.post('http://localhost:8020/employee/save/', employee);
+    return this.httpClient.post('https://scrumback.azurewebsites.net/employee/save/', employee);
   }
 
   setTokenExpiration(expiration: number): void {

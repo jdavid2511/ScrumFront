@@ -8,7 +8,7 @@ import { encrypt } from 'src/app/utils/encrypt';
 })
 export class CustomerService {
 
-  private API_SERVER = 'http://localhost:8020/client';
+  private API_SERVER = 'https://scrumback.azurewebsites.net/client';
 
   constructor(private httpClient: HttpClient,
               private encry: encrypt) {

@@ -8,7 +8,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root'
 })
 export class ImprovementsService {
-  private API_SERVER = 'http://localhost:8020/improvements';
+  private API_SERVER = 'https://scrumback.azurewebsites.net/improvements';
 
   constructor(
     private httpClient: HttpClient,
@@ -53,7 +53,7 @@ export class ImprovementsService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('http://localhost:8020/team/area/'+areaId, {headers});
+    return this.httpClient.get('https://scrumback.azurewebsites.net/team/area/'+areaId, {headers});
   }
 
   GetAllTask():Observable<any>{
@@ -61,14 +61,14 @@ export class ImprovementsService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('http://localhost:8020/taskteam/all', {headers})
+    return this.httpClient.get('https://scrumback.azurewebsites.net/taskteam/all', {headers})
   }
   GetAllObservations():Observable<any>{
     const enToken: any=localStorage.getItem('token')
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('http://localhost:8020/observation/all', {headers})
+    return this.httpClient.get('https://scrumback.azurewebsites.net/observation/all', {headers})
   }
 
   public addObservationType(obsTypeDta: any): Observable<any> {
@@ -76,7 +76,7 @@ export class ImprovementsService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.post('http://localhost:8020/observation/saveobservation', obsTypeDta, {headers})
+    return this.httpClient.post('https://scrumback.azurewebsites.net/observation/saveobservation', obsTypeDta, {headers})
   }
 
   public editObservationType(observationId: String,obsTypeDta: any): Observable<any> {
@@ -84,7 +84,7 @@ export class ImprovementsService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.put('http://localhost:8020/observation/' +observationId, obsTypeDta, {headers})
+    return this.httpClient.put('https://scrumback.azurewebsites.net/observation/' +observationId, obsTypeDta, {headers})
   }
 
 }

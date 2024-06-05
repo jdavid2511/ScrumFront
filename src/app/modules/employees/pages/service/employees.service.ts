@@ -7,7 +7,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root',
 })
 export class EmployeesService {
-  private API_SERVER = 'http://localhost:8020/employee';
+  private API_SERVER = 'https://scrumback.azurewebsites.net/employee';
 
   constructor(private httpClient: HttpClient,
               private encry: encrypt) {}
@@ -85,6 +85,6 @@ export class EmployeesService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('http://localhost:8020/area/employee/'+ employeeId,{headers})
+    return this.httpClient.get('https://scrumback.azurewebsites.net/area/employee/'+ employeeId,{headers})
   }
 }

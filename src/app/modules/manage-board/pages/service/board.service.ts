@@ -12,7 +12,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root',
 })
 export class BoardService {
-  private API_SERVER = 'http://localhost:8020/board';
+  private API_SERVER = 'https://scrumback.azurewebsites.net/board';
 
   constructor(private httpClient: HttpClient,
                 private encry: encrypt) {}
@@ -40,7 +40,7 @@ export class BoardService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('http://localhost:8020/userstory/userstoryteam/' + teamId,{headers});
+    return this.httpClient.get('https://scrumback.azurewebsites.net/userstory/userstoryteam/' + teamId,{headers});
   }
 
   getTeamArea(areaId: string): Observable<any> {
@@ -48,7 +48,7 @@ export class BoardService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('http://localhost:8020/team/area/' + areaId, {headers});
+    return this.httpClient.get('https://scrumback.azurewebsites.net/team/area/' + areaId, {headers});
   }
 
   deleteBoard(id: string): Observable<IBoard[]> {
@@ -80,7 +80,7 @@ export class BoardService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get<Employee>('http://localhost:8020/employee/all', {headers});
+    return this.httpClient.get<Employee>('https://scrumback.azurewebsites.net/employee/all', {headers});
   }
 
   getAllTeam(): Observable<Team> {
@@ -88,7 +88,7 @@ export class BoardService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get<Team>('http://localhost:8020/team/all', {headers});
+    return this.httpClient.get<Team>('https://scrumback.azurewebsites.net/team/all', {headers});
   }
 
   getAllTaskTeam(): Observable<Tasks> {
@@ -96,14 +96,14 @@ export class BoardService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get<Tasks>('http://localhost:8020/taskteam/all', {headers});
+    return this.httpClient.get<Tasks>('https://scrumback.azurewebsites.net/taskteam/all', {headers});
   }
   getAllUserStory(): Observable<UserStory> {
     const enToken: any=localStorage.getItem('token')
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get<UserStory>('http://localhost:8020/userstory/userstory/all',  {headers} );
+    return this.httpClient.get<UserStory>('https://scrumback.azurewebsites.net/userstory/userstory/all',  {headers} );
   }
 
   getBoardByAreaIdTeamIdUserStoryId(areaId: string, teamId: string, userStoryId: string): Observable<any> {

@@ -6,7 +6,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root',
 })
 export class TeamsService {
-  private API_SERVER = 'http://localhost:8020/team';
+  private API_SERVER = 'https://scrumback.azurewebsites.net/team';
 
   constructor(private httpClient: HttpClient,
                private encry: encrypt) {}

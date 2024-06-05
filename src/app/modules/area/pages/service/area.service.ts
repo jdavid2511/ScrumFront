@@ -8,7 +8,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root',
 })
 export class AreaService {
-  private API_SERVER = 'http://localhost:8020/area';
+  private API_SERVER = `https://scrumback.azurewebsites.net/area`;
 
   constructor(private httpClient: HttpClient,
               private encry: encrypt) {}
