@@ -9,7 +9,7 @@ import { encrypt } from 'src/app/utils/encrypt';
 })
 export class TeamsTasksService {
 
-  private API_SERVER ='https://scrumback.azurewebsites.net/taskteam';
+  private API_SERVER ='https://scrumbackend.azurewebsites.net/taskteam';
 
   constructor(private httpClient: HttpClient,
               private encry: encrypt) {

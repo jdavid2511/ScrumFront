@@ -8,7 +8,7 @@ import { encrypt } from 'src/app/utils/encrypt';
 })
 export class ProposalService {
 
-  private API_SERVER = 'https://scrumback.azurewebsites.net/proposal';
+  private API_SERVER = 'https://scrumbackend.azurewebsites.net/proposal';
 
   constructor(
     private httpClient: HttpClient,

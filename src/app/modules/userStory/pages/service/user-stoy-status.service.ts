@@ -8,7 +8,7 @@ import { encrypt } from 'src/app/utils/encrypt';
 })
 export class UserStoyStatusService {
 
-  private API_SERVER = 'https://scrumback.azurewebsites.net/userstorystatus';
+  private API_SERVER = 'https://scrumbackend.azurewebsites.net/userstorystatus';
 
 
   constructor( private httpCliente: HttpClient,

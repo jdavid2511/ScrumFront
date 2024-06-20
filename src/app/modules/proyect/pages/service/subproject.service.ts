@@ -9,7 +9,7 @@ import { encrypt } from 'src/app/utils/encrypt';
 })
 export class SubprojectService {
 
-  private API_SERVER='https://scrumback.azurewebsites.net/subproject';
+  private API_SERVER='https://scrumbackend.azurewebsites.net/subproject';
 
   constructor(private httpClient : HttpClient,  
               private encry: encrypt) { }
@@ -51,7 +51,7 @@ export class SubprojectService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('https://scrumback.azurewebsites.net/project/all', {headers});
+    return this.httpClient.get('https://scrumbackend.azurewebsites.net/project/all', {headers});
   }
 
   getTeam(): Observable<any>{
@@ -59,7 +59,7 @@ export class SubprojectService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('https://scrumback.azurewebsites.net/team/all', {headers});
+    return this.httpClient.get('https://scrumbackend.azurewebsites.net/team/all', {headers});
   }
 
   getSubprojectToProyect(projectId: string):Observable<any>{

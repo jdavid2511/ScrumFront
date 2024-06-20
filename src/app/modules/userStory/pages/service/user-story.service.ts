@@ -9,7 +9,7 @@ import { encrypt } from 'src/app/utils/encrypt';
 })
 export class userStoryService {
 
-  private API_SERVER  ="https://scrumback.azurewebsites.net/subproject";
+  private API_SERVER  ="https://scrumbackend.azurewebsites.net/subproject";
 
   constructor(private httpClient: HttpClient,
               private encry: encrypt) { }
@@ -27,7 +27,7 @@ export class userStoryService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get("https://scrumback.azurewebsites.net/userstory/userstory/all", {headers});
+    return this.httpClient.get("https://scrumbackend.azurewebsites.net/userstory/userstory/all", {headers});
   }
 
   public saveUser_story(user_story:any):Observable<any>{
@@ -35,7 +35,7 @@ export class userStoryService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.post("https://scrumback.azurewebsites.net/userstory/save",user_story, {headers});
+    return this.httpClient.post("https://scrumbackend.azurewebsites.net/userstory/save",user_story, {headers});
   }
 
   getUserStoryById(id:string | null):Observable<any>{
@@ -43,7 +43,7 @@ export class userStoryService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get("https://scrumback.azurewebsites.net/userstory/"+id, {headers});
+    return this.httpClient.get("https://scrumbackend.azurewebsites.net/userstory/"+id, {headers});
   }
 
   updateUserStory(id:string,dataUserStory:any){
@@ -51,7 +51,7 @@ export class userStoryService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.put("https://scrumback.azurewebsites.net/userstory/"+id,dataUserStory, {headers});
+    return this.httpClient.put("https://scrumbackend.azurewebsites.net/userstory/"+id,dataUserStory, {headers});
   }
 
   public getAllUserStoryToSubproject(subProjectId: string | null):Observable<UserStory>{
@@ -67,7 +67,7 @@ export class userStoryService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get("https://scrumback.azurewebsites.net/userstory/subproject/" + subProjectId, {headers})
+    return this.httpClient.get("https://scrumbackend.azurewebsites.net/userstory/subproject/" + subProjectId, {headers})
   }
 
   public getUserStoryToTeam(teamId: string): Observable<UserStoryToTeam[]>{
@@ -75,7 +75,7 @@ export class userStoryService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get<UserStoryToTeam[]>('https://scrumback.azurewebsites.net/userstory/userstoryteam/'+teamId, {headers})
+    return this.httpClient.get<UserStoryToTeam[]>('https://scrumbackend.azurewebsites.net/userstory/userstoryteam/'+teamId, {headers})
   }
 
 

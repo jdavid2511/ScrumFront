@@ -7,7 +7,7 @@ import { encrypt } from 'src/app/utils/encrypt';
   providedIn: 'root'
 })
 export class ProjectService {
-  private API_SERVER='https://scrumback.azurewebsites.net/project'
+  private API_SERVER='https://scrumbackend.azurewebsites.net/project'
 
   constructor(
     private httpClient:HttpClient,
@@ -48,7 +48,7 @@ export class ProjectService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('https://scrumback.azurewebsites.net/client/all', {headers});
+    return this.httpClient.get('https://scrumbackend.azurewebsites.net/client/all', {headers});
   }
 
   getArea(): Observable<any>{
@@ -56,6 +56,6 @@ export class ProjectService {
     const token =''+ this.encry.decryptData(enToken);
     // const token: string | null= ''+localStorage.getItem('token')
     const headers = new HttpHeaders().set("Authorization", token);
-    return this.httpClient.get('https://scrumback.azurewebsites.net/area/all', {headers});
+    return this.httpClient.get('https://scrumbackend.azurewebsites.net/area/all', {headers});
   }
 }
